@@ -70,7 +70,7 @@ Rating.belongsTo(Product)
 Product.hasMany(CartDetails)
 CartDetails.belongsTo(Product)
 
-Product.hasMany(ProductInfo)
+Product.hasMany(ProductInfo, { as: 'info' })
 ProductInfo.belongsTo(Product)
 
 Category.belongsTo(Brand, { through: CategoryBrand })

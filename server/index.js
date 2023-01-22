@@ -8,8 +8,11 @@ const app = express()
 const router = require('./routes/index')
 const errorHandler = require('./middleware/errorHandlingMiddleware')
 const fileUpload = require('express-fileupload')
+const path = require('path')
+const ApiError = require('./error/apiErrors')
 
 app.use(express.json())
+app.use(express.static(path.resolve(__dirname, 'static')))
 app.use(fileUpload({}))
 app.use('/api/v1', router)
 
